@@ -71,4 +71,18 @@ public class UserInputValidationTest {
         boolean result = userInputValidation.isValidPassword("ak123");
         Assertions.assertEquals(false, result);
     }
+
+    @Test
+    public void givenPasswordWithOneUpperCHar_WhenProper_ShouldReturnTrue() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidPasswordOneUpperChar("Akshatha");
+        Assertions.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPasswordWithOneUpperCHar_WhenNotProper_ShouldReturnFalse() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidPasswordOneUpperChar("akshatha");
+        Assertions.assertEquals(false, result);
+    }
 }
