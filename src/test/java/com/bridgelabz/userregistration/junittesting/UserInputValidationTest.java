@@ -113,4 +113,18 @@ public class UserInputValidationTest {
         boolean result = userInputValidation.isValidPasswordWithSpecialChar("Akshu123");
         Assertions.assertEquals(false, result);
     }
+
+    @Test
+    public void givenValidEmail_WhenProper_ShouldReturnTrue() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidEmail("akshatha@gmail.com");
+        Assertions.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenValidEmail_WhenShort_ShouldReturnFalse() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidEmail("akshathan@..gmail.com.a");
+        Assertions.assertEquals(false, result);
+    }
 }
