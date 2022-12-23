@@ -59,6 +59,14 @@ public class UserInputValidation {
         return matcher.matches();
     }
 
+    public static boolean isValidPasswordWithNumeric(String password) {
+        System.out.println(password);
+        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+        Pattern pattern = Pattern.compile(passwordRegex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+
 
     public static void main(String[] args) {
         UserInputValidation userInputValidation = new UserInputValidation();
@@ -81,6 +89,9 @@ public class UserInputValidation {
         System.out.println("Enter password with one upper char: ");
         String passwordUpperChar = scanner.next();
         System.out.println(userInputValidation.isValidPasswordOneUpperChar(passwordUpperChar) ? "Valid" : "In Valid");
+        System.out.println("Enter password with one Numeric: ");
+        String passwordNumeric = scanner.next();
+        System.out.println(userInputValidation.isValidPasswordWithNumeric(passwordNumeric) ? "Valid" : "In Valid");
         scanner.close();
     }
 }
