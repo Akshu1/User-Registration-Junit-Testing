@@ -44,6 +44,13 @@ public class UserInputValidation {
         Matcher matcher = pattern.matcher(mobileNumber);
         return matcher.matches();
     }
+    public static boolean isValidPassword(String password) {
+        System.out.println(password);
+        String passwordRegex = "^(.*).{8,}$";
+        Pattern pattern = Pattern.compile(passwordRegex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
 
     public static void main(String[] args) {
         UserInputValidation userInputValidation = new UserInputValidation();
@@ -60,5 +67,8 @@ public class UserInputValidation {
         System.out.println("Enter mobile number: ");
         String mobileNumber = scanner.next();
         System.out.println(userInputValidation.isValidMobileNumber(mobileNumber) ? "Valid" : "In Valid");
+        System.out.println("Enter password: ");
+        String password = scanner.next();
+        System.out.println(userInputValidation.isValidPassword(password) ? "Valid" : "In Valid");
     }
 }

@@ -57,4 +57,18 @@ public class UserInputValidationTest {
         boolean result = userInputValidation.isValidMobileNumber("9155-656546");
         Assertions.assertEquals(false, result);
     }
+
+    @Test
+    public void givenPassword_WhenProper_ShouldReturnTrue() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidPassword("akshatha");
+        Assertions.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPassword_WhenNotProper_ShouldReturnFalse() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidPassword("ak123");
+        Assertions.assertEquals(false, result);
+    }
 }
