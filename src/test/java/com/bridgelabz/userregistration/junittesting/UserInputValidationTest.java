@@ -99,4 +99,18 @@ public class UserInputValidationTest {
         boolean result = userInputValidation.isValidPasswordWithNumeric("Akshatha");
         Assertions.assertEquals(false, result);
     }
+
+    @Test
+    public void givenPasswordWithOneSpecialChar_WhenProper_ShouldReturnTrue() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidPasswordWithSpecialChar("Akshu@123");
+        Assertions.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPasswordWithOneSpecialChar_WhenNotProper_ShouldReturnFalse() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidPasswordWithSpecialChar("Akshu123");
+        Assertions.assertEquals(false, result);
+    }
 }
