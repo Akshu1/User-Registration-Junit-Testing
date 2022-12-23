@@ -85,4 +85,18 @@ public class UserInputValidationTest {
         boolean result = userInputValidation.isValidPasswordOneUpperChar("akshatha");
         Assertions.assertEquals(false, result);
     }
+
+    @Test
+    public void givenPasswordWithOneNumeric_WhenProper_ShouldReturnTrue() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidPasswordWithNumeric("Akshu1234");
+        Assertions.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPasswordWithOneNumeric_WhenNotProper_ShouldReturnFalse() {
+        UserInputValidation userInputValidation = new UserInputValidation();
+        boolean result = userInputValidation.isValidPasswordWithNumeric("Akshatha");
+        Assertions.assertEquals(false, result);
+    }
 }
