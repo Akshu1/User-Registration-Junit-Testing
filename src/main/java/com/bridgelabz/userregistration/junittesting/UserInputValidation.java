@@ -51,6 +51,14 @@ public class UserInputValidation {
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
+    public static boolean isValidPasswordOneUpperChar(String password) {
+        System.out.println(password);
+        String passwordRegex = "^(?=.*[A-Z]{1}).{8,}$";
+        Pattern pattern = Pattern.compile(passwordRegex);
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+
 
     public static void main(String[] args) {
         UserInputValidation userInputValidation = new UserInputValidation();
@@ -70,5 +78,9 @@ public class UserInputValidation {
         System.out.println("Enter password: ");
         String password = scanner.next();
         System.out.println(userInputValidation.isValidPassword(password) ? "Valid" : "In Valid");
+        System.out.println("Enter password with one upper char: ");
+        String passwordUpperChar = scanner.next();
+        System.out.println(userInputValidation.isValidPasswordOneUpperChar(passwordUpperChar) ? "Valid" : "In Valid");
+        scanner.close();
     }
 }
